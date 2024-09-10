@@ -11,7 +11,7 @@ pipeline {
     stages {
         stage('git-checkout') {
             steps {
-                git 'https://github.com/jaiswaladi246/secretsanta-generator.git'
+                git 'https://github.com/Deepajagadish/secretsanta-generator.git'
             }
         }
 
@@ -66,8 +66,8 @@ pipeline {
             steps {
                script{
                    withDockerRegistry(credentialsId: 'docker-cred') {
-                    sh "docker tag santa123 adijaiswal/santa123:latest"
-                    sh "docker push adijaiswal/santa123:latest"
+                    sh "docker tag santa123 deepajagadish/santa123:latest"
+                    sh "docker push deepajagadish/santa123:latest"
                  }
                }
             }
@@ -76,11 +76,11 @@ pipeline {
         	 
         stage('Docker Image Scan') {
             steps {
-               sh "trivy image adijaiswal/santa123:latest "
+               sh "trivy image deepajagadish/santa123:latest "
             }
         }}
         
-         post {
+         /* post {
             always {
                 emailext (
                     subject: "Pipeline Status: ${BUILD_NUMBER}",
@@ -97,7 +97,7 @@ pipeline {
                     mimeType: 'text/html'
                 )
             }
-        }
+        } */
 		
 		
 
