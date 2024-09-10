@@ -11,7 +11,7 @@ pipeline {
     stages {
         stage('git-checkout') {
             steps {
-                git branch: 'master', credentialsId: 'github', url: 'https://github.com/Deepajagadish/secretsanta-generator.git'
+                git branch: 'master', url: 'https://github.com/Deepajagadish/secretsanta-generator.git'
             }
         }
 
