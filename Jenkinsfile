@@ -9,6 +9,11 @@ pipeline {
     } */
 
     stages {
+	stage("Cleanup Workspace"){
+                steps {
+                cleanWs()
+                }
+        }
         stage('git-checkout') {
             steps {
                 git branch: 'master', url: 'https://github.com/Deepajagadish/secretsanta-generator.git'
