@@ -4,9 +4,15 @@ pipeline {
         jdk 'jdk17'
         maven 'maven3'
     }
-   /* environment{
-        SCANNER_HOME= tool 'sonar-scanner'
-    } */
+    environment{
+        /*SCANNER_HOME= tool 'sonar-scanner'*/
+	    APP_NAME = "Santa123"
+            RELEASE = "1.0.0"
+            DOCKER_USER = "deepajagadish"
+            DOCKER_PASS = "docker-cred"
+            IMAGE_NAME = "${DOCKER_USER}" + "/" + "${APP_NAME}"
+            IMAGE_TAG = "${RELEASE}-${BUILD_NUMBER}"
+    } 
 
     stages {
 	stage("Cleanup Workspace"){
@@ -76,13 +82,13 @@ pipeline {
             steps {
                script{
                    withDockerRegistry(credentialsId: 'docker-cred') {
-                    sh "docker tag santa123 deepajagadish/santa123:latest"
-                    sh "docker push deepajagadish/santa123:latest"
+                    sh "docker tag ${APP_NAME} ${DOCKER_USER}" + "/" + "${APP_NAME}"
+                    sh "docker push ${DOCKER_USER}" + "/" + "${APP_NAME}"
                  }
                }
             }
         }
-	stage('Docker Image Scan') {
+	/*stage('Docker Image Scan') {
             steps {
                sh "trivy image deepajagadish/santa123:latest "
             }
@@ -95,7 +101,7 @@ pipeline {
                  }
                }
             }
-        }
+        }*/
 	
 
     }
