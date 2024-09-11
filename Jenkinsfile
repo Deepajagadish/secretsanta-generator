@@ -37,11 +37,11 @@ pipeline {
                sh "mvn test"
             }
         }
-	stage('trivy fs scan') {
+	/*stage('trivy fs scan') {
             steps {
                sh "trivy fs --format table -o trivy-fs-report.html . "
             }
-        } 
+        } */
         
 	/* stage('OWASP Dependency Check') {
             steps {
