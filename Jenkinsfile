@@ -72,7 +72,7 @@ pipeline {
                }
             }
         }
-	stage('Docker Push') {
+	stage('Docker run-container') {
             steps {
                script{
                    withDockerRegistry(credentialsId: 'docker-cred') {
