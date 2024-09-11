@@ -4,9 +4,9 @@ pipeline {
         jdk 'jdk17'
         maven 'maven3'
     }
-    environment{
+   /* environment{
         SCANNER_HOME= tool 'sonar-scanner'
-    }
+    } */
 
     stages {
         stage('git-checkout') {
