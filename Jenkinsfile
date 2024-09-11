@@ -32,7 +32,7 @@ pipeline {
                dependencyCheck additionalArguments: ' --scan ./ ', odcInstallation: 'DC'
                     dependencyCheckPublisher pattern: '/dependency-check-report.xml'
             }
-        } */
+        } 
 
 
         stage('Sonar Analysis') {
@@ -43,7 +43,7 @@ pipeline {
                    -Dsonar.projectKey=Santa '''
                }
             }
-        }
+        } */
 
 		 
         stage('Code-Build') {
