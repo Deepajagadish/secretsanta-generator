@@ -72,22 +72,22 @@ pipeline {
             steps {
                script{
                    withDockerRegistry(credentialsId: 'docker-cred') {
-                    sh "docker build -t  santa123 . "
+                    sh "docker build -t  ${IMAGE_NAME} . "
                  }
                }
             }
         }
 
-        stage('Docker Push') {
+        /*stage('Docker Push') {
             steps {
                script{
                    withDockerRegistry(credentialsId: 'docker-cred') {
-                    sh "docker tag ${APP_NAME} ${DOCKER_USER}" + "/" + "${APP_NAME}"
-                    sh "docker push ${DOCKER_USER}" + "/" + "${APP_NAME}"
+                    sh "docker tag ${IMAGE_TAG}"
+                    sh "docker push ${${IMAGE_NAME}}" + ":" + "${IMAGE_TAG}"
                  }
                }
             }
-        }
+        }*/
 	/*stage('Docker Image Scan') {
             steps {
                sh "trivy image deepajagadish/santa123:latest "
