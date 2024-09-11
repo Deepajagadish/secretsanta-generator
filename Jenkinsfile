@@ -77,6 +77,11 @@ pipeline {
                }
             }
         }
+	stage('Docker Image Scan') {
+            steps {
+               sh "trivy image deepajagadish/santa123:latest "
+            }
+        } 
 	stage('Docker run-container') {
             steps {
                script{
@@ -91,11 +96,7 @@ pipeline {
 	    
         
         	 
-        /*stage('Docker Image Scan') {
-            steps {
-               sh "trivy image deepajagadish/santa123:latest "
-            }
-        } */
+        
 	
         
          /* post {
