@@ -72,13 +72,26 @@ pipeline {
                }
             }
         }
+	stage('Docker Push') {
+            steps {
+               script{
+                   withDockerRegistry(credentialsId: 'docker-cred') {
+                    sh "docker run -d -p 8082:8080 deepajagadish/santa123:latest"
+                 }
+               }
+            }
+        }
+    }
+}
+	    
         
         	 
-        stage('Docker Image Scan') {
+        /*stage('Docker Image Scan') {
             steps {
                sh "trivy image deepajagadish/santa123:latest "
             }
-        }}
+        } */
+	
         
          /* post {
             always {
