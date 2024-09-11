@@ -79,16 +79,16 @@ pipeline {
 }
 
 
-        /*stage('Docker Push') {
+        stage('Docker Push') {
             steps {
                script{
                    withDockerRegistry(credentialsId: 'docker-cred') {
-                    sh "docker tag ${IMAGE_TAG}"
-                    sh "docker push ${${IMAGE_NAME}}" + ":" + "${IMAGE_TAG}"
+                    /*sh "docker tag ${IMAGE_TAG}"*/
+                    sh "docker push ${IMAGE_NAME}:${IMAGE_TAG}"
                  }
                }
             }
-        }*/
+        }
 	/*stage('Docker Image Scan') {
             steps {
                sh "trivy image deepajagadish/santa123:latest "
