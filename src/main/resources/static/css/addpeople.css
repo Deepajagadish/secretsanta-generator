@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Baloo+Da+2&display=swap');
 
 body {
-	text-align: center;
+	text-align: start;
 	font-family: 'Baloo Da 2', cursive;
 	background-image: url("../images/blue-snow.png");
 }
